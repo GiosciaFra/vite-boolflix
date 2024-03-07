@@ -17,25 +17,32 @@ export default {
     }
   },
   
-//   created() {
-//     axios.get("https://api.themoviedb.org/3/search/movie?api_key=98149095997580a258be6c4d79203beb&query=ritorno+al+futuro").then(res => {this.store.movies 
-//       = res.data.result;
-//       console.log(res.data.result);
-// });
-// },
+  created() {
+ 
+},
 
 methods: {
-  searchMovies() {
+ 
+  search(){
+ 
+    axios.get("https://api.themoviedb.org/3/search/tv?api_key=98149095997580a258be6c4d79203beb&query=" + this.store.searchValue)
+    .then(res => 
+    {
+       
+      this.store.serie = res.data.results;
+
+    });
     axios.get("https://api.themoviedb.org/3/search/movie?api_key=98149095997580a258be6c4d79203beb&query=" + this.store.searchValue)
     .then(res => 
     {
-      // console.log(res.data.result)
-      // console.log(this.store.searchValue);
-      this.store.movies = res.data.results;
+      
+      this.store.movie = res.data.results;
+
     });
     
-  },
-},
+  }
+
+}
 }
 
 
@@ -45,7 +52,7 @@ methods: {
 
 <template>
     <div class="container">
-      <AppNav @click="searchMovies()"></AppNav>
+      <AppNav @click="search()"></AppNav>
         <AppMain></AppMain>
     </div>
 </template>
