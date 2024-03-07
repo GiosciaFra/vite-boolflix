@@ -1,12 +1,23 @@
 <script>
 export default {
     name: 'MovieItem',
+    
+    props: {
+        movie: Object,
+    },
 }
+
 </script>
 
 <template>       
 <div id="movies">
-    Movie
+    <span>{{ movie.title }}</span>
+    <br>
+    <span>{{ movie.original_title }}</span>
+    <br>
+    <span>{{ movie.original_language }}</span>
+    <br>
+    <span>{{ movie.vote_average }}</span>
 </div>
 </template>
 

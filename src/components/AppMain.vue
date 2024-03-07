@@ -1,23 +1,19 @@
 <script>
-import AppNav from "./AppNav.vue";
-import SearchMovie from "./SearchMovie.vue";
 import MovieItem from "./MovieItem.vue";
+import {store} from "../store.js"
 
-import axios from 'axios';
 
 export default {
     name: 'AppMain',
 
     components: {
-        AppNav,
-        SearchMovie,
         MovieItem,
 
     },
 
     data() {
         return {
-
+            store,
         }
     }
 }
@@ -25,11 +21,10 @@ export default {
 
 <template>
 
-    <AppNav></AppNav>
-    <SearchMovie></SearchMovie>
+    
 
 <div class="container">
-    <MovieItem></MovieItem>
+    <MovieItem v-for="movie in store.movies" :movie=movie></MovieItem>
 </div>
 </template>
 
