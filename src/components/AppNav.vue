@@ -17,7 +17,7 @@ export default {
 <template>
 <nav class="bg-dark px-2  d-flex justify-content-between align-items-center text-danger ">
         <div id="logo" >
-            logo
+            BOOLFLIX
         </div>
          <div id="searchbar">
                 <input type="search" v-model="store.searchValue" placeholder="Search">

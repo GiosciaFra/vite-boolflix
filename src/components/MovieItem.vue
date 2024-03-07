@@ -14,19 +14,34 @@ export default {
 
         showPosters(){
             return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}.jpg`
+        },
+
+        showRating(){
+            const rating = Math.round(this.movie.vote_average / 2);
+
+            const starArray = ['fa-regular fa-star', 
+            'fa-regular fa-star',
+             'fa-regular fa-star', 
+             'fa-regular fa-star,',
+              'fa-regular fa-star'];
+
+              for (let i = 0; i < rating; i++) {
+                starArray.pop();
+                starArray.unshift('fa-solid fa-star');
+              }
+
+              return starArray;
         }
     }
 }
 
 </script>
 
-<template>       
+<template>   
 
+<div id="card-movies" class="container-fluid gap-2  flex-row w-25  ">
 
-
-<div id="card-movies" class="container-fluid gap-2 d-flex flex-row  ">
-
-    <div class="card col-4 ">
+    <div class="card">
 
     <img :src="showPosters()" alt="">
     <span>{{ movie.title }}</span>
@@ -34,8 +49,10 @@ export default {
     <span>{{ movie.original_title }}</span>
     
     <img :src="showFlag()" alt="">
-    
-    <span>{{ movie.vote_average }}</span>
+
+    <div class="d-flex">
+    <i  v-for="star in showRating()" :class="star"></i>
+</div>
 </div>
 </div>
 </template>

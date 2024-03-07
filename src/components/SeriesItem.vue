@@ -14,28 +14,45 @@ export default {
 
         showPosters(){
             return `https://image.tmdb.org/t/p/w342${this.serie.poster_path}`
+        },
+
+        showRating(){
+            const rating = Math.round(this.serie.vote_average / 2);
+
+            const starArray = ['fa-regular fa-star', 
+            'fa-regular fa-star',
+             'fa-regular fa-star', 
+             'fa-regular fa-star,',
+              'fa-regular fa-star'];
+
+              for (let i = 0; i < rating; i++) {
+                starArray.pop();
+                starArray.unshift('fa-solid fa-star');
+              }
+
+              return starArray;
         }
     }
 }
 </script>
 
 <template>
-        <div id="card-series" class="container-fluid d-flex flex-row  ">
+        <div id="card-series" class="container-fluid d-flex flex-row w-25">
 
-            <div class="card col-4 ">
+            <div class="card ">
 
                 <img :src="showPosters()" alt="">
                 <span>{{ serie.name }}</span>
 
                 <span>{{ serie.original_name }}</span>
-                <div>
-                    
+                
                 <img :src="showFlag()" alt="">
-            </div>
-                <span>{{ serie.vote_average }}</span>
 
-            </div>
+                <div class="d-flex">
+                    <i  v-for="star in showRating()" :class="star"></i>
+                </div>
 
+        </div>
         </div>
 
 </template>
