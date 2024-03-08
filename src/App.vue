@@ -58,5 +58,10 @@ methods: {
 </template>
 
 <style lang="scss">
-@use './styles/general.scss' as *
+@use './styles/general.scss' as *;
+
+
+#app {
+  background-color: black;
+}
 </style>

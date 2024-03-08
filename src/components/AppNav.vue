@@ -15,13 +15,13 @@ export default {
 </script>
 
 <template>
-<nav class="bg-dark px-2  d-flex justify-content-between align-items-center text-danger ">
-        <div id="logo" >
-            BOOLFLIX
+<nav class="pt-5 pb-5 d-flex justify-content-between align-items-center text-danger ">
+        <div id="logo" class="pt-3" >
+            <img src="/public/img/logo-boolflix.png" alt="">
         </div>
          <div id="searchbar">
-                <input type="search" v-model="store.searchValue" placeholder="Search">
-                <button @click="$emit('search')">Search movies</button>
+                <input class="p-1" type="search" v-model="store.searchValue" placeholder="Search movies or series">
+                <button class="p-1 border border-none bg-danger text-white " @click="$emit('search')">Search</button>
          </div>
     
 </nav>
@@ -31,7 +31,8 @@ export default {
 @use '../styles/general.scss';
 
 nav {
-    height: 50px;
+    height: 70px;
+    width: 100%
 }
 
 </style>
