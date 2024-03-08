@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'MovieItem',
+    name: 'AppCard',
     
     props: {
         movie: Object,
@@ -50,13 +50,13 @@ export default {
 
             <div class=" d-flex gap-2">
                     <strong>Title:</strong>
-                    <span>{{ movie.title }}</span>
+                    <span>{{ movie.title ? movie.title : movie.name }}</span>
                     
                 </div>
                 <div class=" d-flex gap-2">
 
                     <strong>Original title:</strong>
-                    <span>{{ movie.original_title }}</span>
+                    <span>{{ movie.original_title ? movie.original_title : movie.original_name }}</span>
                 </div>
 
             <div class=" d-flex align-items-center gap-2 ">

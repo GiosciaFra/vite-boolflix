@@ -1,6 +1,5 @@
 <script>
-import SeriesItem from "./SeriesItem.vue";
-import MovieItem from "./MovieItem.vue";
+import AppCard from "./AppCard.vue";
 import {store} from "../store.js"
 
 
@@ -8,8 +7,7 @@ export default {
     name: 'AppMain',
 
     components: {
-        MovieItem,
-        SeriesItem
+        AppCard,
 
     },
 
@@ -32,8 +30,8 @@ export default {
 
     <div class="container pt-4">
 
+        <AppCard v-for="movie in store.movie" :movie="movie"></AppCard>
 
-        <MovieItem v-for="movie in store.movie" :movie="movie"></MovieItem>
     </div>
 
     <div  class="pt-5 pb-3 fw-bold fs-2 text-uppercase text-white">
@@ -41,9 +39,13 @@ export default {
     </div>
 
     <hr class="border border-4 border-white">
-    <div class="container pt-4">
-        <SeriesItem v-for="serie in store.serie" :serie="serie"></SeriesItem>
-</div>
+
+
+    <div class="container pt-4 pb-4 ">
+
+        <AppCard v-for="serie in store.serie" :movie="serie"></AppCard>
+        
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -55,4 +57,4 @@ export default {
 }
 
 
-</style>
+</style>./AppCard.vue/index.js
