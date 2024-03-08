@@ -23,7 +23,7 @@ export default {
 
     
 
-    <div class="pt-4 pb-3 fw-bold fs-2 text-uppercase text-white">
+    <div class="py-3 fw-bold fs-2 text-uppercase text-white">
         Movies
     </div>
     <hr class=" border border-4 border-white ">
@@ -41,7 +41,7 @@ export default {
     <hr class="border border-4 border-white">
 
 
-    <div class="container pt-4 pb-4 ">
+    <div class="container pt-4 pb-5 ">
 
         <AppCard v-for="serie in store.serie" :movie="serie"></AppCard>
         

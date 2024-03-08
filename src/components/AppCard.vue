@@ -8,12 +8,48 @@ export default {
 
     methods: {
         showFlag(){
-            return  `https://flagcdn.com/16x12/${this.movie.original_language}.png`
+            let flag = this.movie.original_language;
+            switch(this.movie.original_language) {
+
+                case "ja":
+                    flag = "jp";
+                
+                case "en":
+                    flag = "us";
+
+                case "cs":
+                    flag = "cz"
+
+                case "uk":
+                    flag = "gb"
+
+                case "hi":
+                    flag = "in"
+
+                 case "sv":
+                    flag = "se"
+
+                case "ko":
+                    flag = "kr";
+                        
+                case "da":
+                    flag = "dk";
+                            
+                case "zh":
+                    flag = "cn";
+                    default:
+         }
+            return  `https://flagcdn.com/16x12/${flag}.png`
         }, 
 
         showPosters(){
+            if(this.movie.poster_path != null) {
+        
             return `https://image.tmdb.org/t/p/w342/${this.movie.poster_path}.jpg`
-        },
+        }else{
+        return `/img/fallback.webp`
+    }
+},
 
         showRating(){
             const rating = Math.round(this.movie.vote_average / 2);
@@ -67,7 +103,7 @@ export default {
             
             <div class="d-flex  align-items-center gap-2">
                 <strong>Rating:</strong>
-                <i  v-for="star in showRating()" :class="star" class=" text-danger "></i>
+                <i  v-for="star in showRating()" :class="star" class=" text-warning "></i>
             </div>
 
             <strong>Overview:</strong>

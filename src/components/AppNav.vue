@@ -19,7 +19,7 @@ export default {
             <img src="/public/img/logo-boolflix.png" alt="">
         </div>
          <div id="searchbar">
-                <input class="px-3 py-1  me-1 " type="search" v-model="store.searchValue" placeholder="Search movies or series">
+                <input class="mx-3 p-1 me-2 " type="search" v-model="store.searchValue" placeholder="Search movies or series">
                 <button class=" px-3 py-1  border border-none bg-danger text-white " @click="$emit('search')">Search</button>
          </div>
     
