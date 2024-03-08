@@ -1,6 +1,5 @@
 <script>
 import {store} from '../store.js';
-import axios from 'axios';
 
 
 export default {
@@ -20,8 +19,8 @@ export default {
             <img src="/public/img/logo-boolflix.png" alt="">
         </div>
          <div id="searchbar">
-                <input class="p-1" type="search" v-model="store.searchValue" placeholder="Search movies or series">
-                <button class="p-1 border border-none bg-danger text-white " @click="$emit('search')">Search</button>
+                <input class="px-3 py-1  me-1 " type="search" v-model="store.searchValue" placeholder="Search movies or series">
+                <button class=" px-3 py-1  border border-none bg-danger text-white " @click="$emit('search')">Search</button>
          </div>
     
 </nav>
@@ -33,6 +32,10 @@ export default {
 nav {
     height: 70px;
     width: 100%
+    
 }
 
+nav img {
+    margin-left: -10px;
+}
 </style>
